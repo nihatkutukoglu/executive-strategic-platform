@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-anadolu-dark: #0f172a;
+  --color-anadolu-card: #1e293b;
+  --color-anadolu-accent: #ef4444;
+  --color-anadolu-text: #f8fafc;
+  --color-anadolu-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--color-anadolu-dark);
+  color: var(--color-anadolu-text);
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* React Flow custom animation */
+.slow-edge-animation path.react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dashdraw 4s linear infinite !important;
+}
+
+.fast-edge-animation path.react-flow__edge-path {
+  stroke-dasharray: 8 4;
+  animation: dashdraw 0.6s linear infinite !important;
+}
+
+@keyframes dashdraw {
+  from {
+    stroke-dashoffset: 50;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
