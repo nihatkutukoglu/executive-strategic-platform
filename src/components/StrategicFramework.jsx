@@ -1,150 +1,216 @@
-import { ShieldAlert, TrendingUp, Sparkles, ZapOff, Users, Clock, DollarSign, Search, AlertOctagon } from 'lucide-react';
+import { ShieldAlert, TrendingUp, Sparkles, ZapOff, Users, Clock, DollarSign, Search, AlertOctagon, Shield, Compass, Target, Rocket, Bell, BarChart2 } from 'lucide-react';
 import CompetitorAnalysis from './CompetitorAnalysis';
 
 export default function StrategicFramework() {
   return (
     <div className="w-full mt-2 pb-10">
-      <div className="mb-10">
-        <h3 className="text-3xl font-bold text-white tracking-tight">Stratejik Çerçeve</h3>
-        <p className="text-anadolu-muted mt-2 text-sm">Anadolu Etap operasyonlarında semptomları değil, kök nedenleri tedavi etmek için hazırlanan stratejik teşhis ve dönüşüm haritası.</p>
+      <div className="mb-10 lg:text-left">
+        <h3 className="text-3xl font-bold text-white tracking-tight flex items-center lg:justify-start gap-4 pb-2 border-b border-slate-800">
+          Stratejik Çerçeve: <span className="text-slate-500 font-normal">SWOT Analizi</span>
+        </h3>
       </div>
 
-      {/* SWOT Matrix */}
-      <h4 className="text-2xl font-bold text-white mb-6">SWOT Analizi</h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-        {/* Güçlü Yönler (Green) */}
-        <div className="bg-anadolu-card border-t-[4px] border-t-green-500 border border-slate-800 border-x-slate-800 border-b-slate-800 rounded-xl p-8 shadow-lg hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(34,197,94,0.1)] transition-all duration-300 group">
-          <div className="flex items-center gap-3 mb-5 text-green-500">
-            <TrendingUp size={28} className="group-hover:scale-110 transition-transform" />
-            <h5 className="font-bold text-xl tracking-tight">Güçlü Yönler (Strengths)</h5>
-          </div>
-          <ul className="text-slate-300 text-sm space-y-3 list-none font-medium">
-            <li className="flex gap-2"><span>•</span> Geniş tarım arazileri ve yüksek üretim kapasitesi</li>
-            <li className="flex gap-2"><span>•</span> Modern fabrika altyapısı ve teknolojik donanım</li>
-            <li className="flex gap-2"><span>•</span> Güçlü finansal yapı (Anadolu Grubu desteği)</li>
-            <li className="flex gap-2"><span>•</span> Mevcut Roots ve SAP sistem altyapısı</li>
-            <li className="flex gap-2"><span>•</span> Çok birimli kalite kontrol yapısı (Lojistik, Kalite, Surway)</li>
-          </ul>
+      {/* NEW SWOT MATRIX DESIGN */}
+      <div className="relative w-full max-w-[1300px] mx-auto min-h-[650px] flex flex-col md:flex-row justify-between items-center mb-14 py-10 px-2 lg:px-4 overflow-hidden group">
+        
+        {/* Radar / Grid Lines Background Effects */}
+        <div className="absolute inset-0 pointer-events-none opacity-20 z-0">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-slate-400/50 border-dashed"></div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-slate-400/50 border-dashed"></div>
+            <div className="absolute left-1/2 top-[10%] bottom-[10%] w-px bg-slate-400/30 border-dashed"></div>
+            <div className="absolute top-1/2 left-[5%] right-[5%] h-px bg-slate-400/30 border-dashed"></div>
+            
+            <div className="absolute left-1/2 top-[10%] -translate-x-1/2 w-4 h-[1px] bg-slate-400"></div>
+            <div className="absolute left-1/2 bottom-[10%] -translate-x-1/2 w-4 h-[1px] bg-slate-400"></div>
+            <div className="absolute top-1/2 left-[5%] -translate-y-1/2 w-[1px] h-4 bg-slate-400"></div>
+            <div className="absolute top-1/2 right-[5%] -translate-y-1/2 w-[1px] h-4 bg-slate-400"></div>
         </div>
 
-        {/* Zayıf Yönler (Red) */}
-        <div className="bg-anadolu-card border-t-[4px] border-t-red-500 border border-slate-800 rounded-xl p-8 shadow-lg hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(239,68,68,0.1)] transition-all duration-300 group">
-          <div className="flex items-center gap-3 mb-5 text-red-500">
-            <ZapOff size={28} className="group-hover:scale-110 transition-transform" />
-            <h5 className="font-bold text-xl tracking-tight">Zayıf Yönler (Weaknesses)</h5>
+        {/* Center Tree Image */}
+        <div className="absolute inset-0 flex justify-center items-center pointer-events-none z-0">
+          <div className="relative">
+            {/* Glowing effect behind tree */}
+            <div className="absolute inset-0 bg-orange-200/5 rounded-full blur-[80px] scale-150"></div>
+            <img 
+              src="/fruit_tree_swot.png" 
+              alt="Anadolu Etap Çınar" 
+              className="relative h-[650px] md:h-[750px] object-contain drop-shadow-[0_0_30px_rgba(255,220,150,0.1)] transition-transform duration-1000 group-hover:scale-[1.02] -mt-10" 
+            />
           </div>
-          <ul className="text-slate-300 text-sm space-y-3 list-none font-medium">
-            <li className="flex gap-2"><span>•</span> Tüm departmanlarda manuel e-posta bağımlılığı (+40 dk/gün kayıp)</li>
-            <li className="flex gap-2"><span>•</span> Roots sistemi tek noktada darboğaz (%100 kapasite kullanımı)</li>
-            <li className="flex gap-2"><span>•</span> Manuel onay ve kontrol süreçleri (ort. 2 saat bekleme)</li>
-            <li className="flex gap-2"><span>•</span> Departmanlar arası dijital entegrasyon eksikliği</li>
-            <li className="flex gap-2"><span>•</span> Mevsimsel işçi bağımlılığı ve eğitim maliyetleri</li>
-            <li className="flex gap-2"><span>•</span> <strong>W5.</strong> Müşteri Geri Bildiriminde Dijitalleşme Eksikliği: Manuel geri bildirim süreci</li>
-          </ul>
         </div>
 
-        {/* Fırsatlar (Blue) */}
-        <div className="bg-anadolu-card border-t-[4px] border-t-blue-500 border border-slate-800 rounded-xl p-8 shadow-lg hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)] transition-all duration-300 group">
-          <div className="flex items-center gap-3 mb-5 text-blue-500">
-            <Sparkles size={28} className="group-hover:scale-110 transition-transform" />
-            <h5 className="font-bold text-xl tracking-tight">Fırsatlar (Opportunities)</h5>
+        {/* LEFT SIDE: Strengths & Weaknesses */}
+        <div className="flex flex-col justify-between z-10 w-full md:w-[420px] min-h-[550px]">
+          
+          {/* S Card: Güçlü Yönler */}
+          <div className="bg-[#1a202c]/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative overflow-hidden transform transition-all duration-300 hover:bg-[#1a202c]">
+            <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-gradient-to-b from-emerald-500 to-green-700"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <Shield size={18} className="text-slate-400" />
+                <h5 className="font-semibold text-[13px] tracking-wider text-slate-300">Güçlü Yönler</h5>
+              </div>
+              <ul className="text-white text-lg font-medium space-y-3 list-none">
+                <li>S1.Entegre İş Modeli</li>
+                <li>S2.Devasa Ölçek ve Kapasite</li>
+                <li>S3.Coğrafi Çeşitlilik</li>
+                <li>S4.Güçlü kurumsal yapı</li>
+                <li>S5.Teknoloji</li>
+              </ul>
+            </div>
           </div>
-          <ul className="text-slate-300 text-sm space-y-3 list-none font-medium">
-            <li className="flex gap-2"><span>•</span> Otomatik e-posta ve entegre veri yönetimi çözümü</li>
-            <li className="flex gap-2"><span>•</span> Merkezi Yönetici Paneli ile süreç otomasyonu</li>
-            <li className="flex gap-2"><span>•</span> Organik tarım teşvikleri ve devlet destekleri</li>
-            <li className="flex gap-2"><span>•</span> Mobil uygulama ile müşteri şikayet takibi</li>
-            <li className="flex gap-2"><span>•</span> AI destekli tahmine dayalı analiz ve izleme sistemleri</li>
-            <li className="flex gap-2"><span>•</span> <strong>O3.</strong> Dijital Dönüşüm (Tarım 4.0): Akıllı geri bildirim sistemleri ile üretim/paketleme hatalarının otomatik tespit edilmesi</li>
-          </ul>
+
+          {/* W Card: Zayıf Yönler */}
+          <div className="bg-[#1a202c]/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative overflow-hidden transform transition-all duration-300 hover:bg-[#1a202c]">
+            <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-gradient-to-b from-amber-500 to-orange-700"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <Search size={18} className="text-slate-400" />
+                <h5 className="font-semibold text-[13px] tracking-wider text-slate-300">Zayıf Yönler</h5>
+              </div>
+              <ul className="text-white text-lg font-medium space-y-3 list-none">
+                <li className="text-[#ff8a9a] font-semibold drop-shadow-sm">
+                  <span className="opacity-90">W1.Müşteri Geri Bildiriminde</span><br/>
+                  <span className="ml-[34px] opacity-90">Dijitalleşme Eksikliği</span>
+                </li>
+                <li className="text-amber-50/80">W2.Yüksek Girdi Maliyetleri</li>
+                <li className="text-amber-50/80">W3.Mevsimsel İşgücü Bağımlılığı</li>
+                <li className="text-amber-50/80">W4.Biyolojik Riskler</li>
+                <li className="text-amber-50/80">W5.Fason Tesis Kullanımı</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
 
-        {/* Tehditler (Yellow) */}
-        <div className="bg-anadolu-card border-t-[4px] border-t-yellow-500 border border-slate-800 rounded-xl p-8 shadow-lg hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(234,179,8,0.1)] transition-all duration-300 group">
-          <div className="flex items-center gap-3 mb-5 text-yellow-500">
-            <ShieldAlert size={28} className="group-hover:scale-110 transition-transform" />
-            <h5 className="font-bold text-xl tracking-tight">Tehditler (Threats)</h5>
+        {/* RIGHT SIDE: Opportunities & Threats */}
+        <div className="flex flex-col justify-between z-10 w-full md:w-[420px] min-h-[550px] mt-16 md:mt-0">
+          
+          {/* O Card: Fırsatlar */}
+          <div className="bg-[#1a202c]/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative overflow-hidden transform transition-all duration-300 hover:bg-[#1a202c]">
+            <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-gradient-to-b from-blue-500 to-indigo-800"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <Compass size={18} className="text-slate-400" />
+                <h5 className="font-semibold text-[13px] tracking-wider text-slate-300">Fırsatlar</h5>
+              </div>
+              <ul className="text-white text-lg font-medium space-y-3 list-none">
+                <li>01.Küresel Sağlıklı Beslenme<br/>
+                  <span className="ml-[34px] block">Trendi</span>
+                </li>
+                <li>02.Sürdürülebilirlik</li>
+                <li>03.Dijital Dönüşüm</li>
+                <li>04.Ürün Çeşitlendirme</li>
+              </ul>
+            </div>
           </div>
-          <ul className="text-slate-300 text-sm space-y-3 list-none font-medium">
-            <li className="flex gap-2"><span>•</span> İklim değişikliği ve kuraklık riski (ham madde tedariki)</li>
-            <li className="flex gap-2"><span>•</span> Veri hatası riski ve müşteri memnuniyetsizliği</li>
-            <li className="flex gap-2"><span>•</span> Tamamen dijitalleşmiş çevik rakiplerin pazara girmesi</li>
-            <li className="flex gap-2"><span>•</span> Ekonomik dalgalanmalar ve maliyet artışları</li>
-            <li className="flex gap-2"><span>•</span> Yasal düzenleme değişiklikleri ve uyum maliyetleri</li>
-          </ul>
+
+          {/* T Card: Tehditler */}
+          <div className="bg-[#1a202c]/80 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative overflow-hidden transform transition-all duration-300 hover:bg-[#1a202c]">
+            <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-gradient-to-b from-red-600 to-rose-900"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <Target size={18} className="text-slate-400" />
+                <h5 className="font-semibold text-[13px] tracking-wider text-slate-300">Tehditler</h5>
+              </div>
+              <ul className="text-white text-lg font-medium space-y-3 list-none">
+                <li>T1.İklim Krizi</li>
+                <li>T2.Küresel Rekabet</li>
+                <li>T3.Değişen Tüketici Alışkanlığı</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* TOWS Matrix */}
-      <h4 className="text-2xl font-bold text-white mb-6">TOWS Matrisi</h4>
-      <div className="bg-anadolu-card border border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl mb-14">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm text-slate-300 border-collapse">
-            <thead className="bg-[#0f172a] text-xs uppercase font-extrabold border-b border-slate-700 tracking-wider">
-              <tr>
-                <th className="px-6 py-5 border-r border-slate-700 w-[20%] text-slate-400">İç \ Dış</th>
-                <th className="px-6 py-5 border-r border-slate-700 w-[40%] text-blue-500 bg-blue-500/5">Fırsatlar (O)</th>
-                <th className="px-6 py-5 w-[40%] text-yellow-500 bg-yellow-500/5">Tehditler (T)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Güçlü Yönler Satırı */}
-              <tr className="border-b border-slate-700 group/row">
-                <td className="px-6 py-8 border-r border-slate-700 bg-green-500/5 font-bold text-green-500 uppercase tracking-wider relative align-top">
-                  Güçlü Yönler (S)
-                  <div className="absolute inset-0 bg-slate-800/10 opacity-0 group-hover/row:opacity-100 transition-opacity pointer-events-none"></div>
-                </td>
-                
-                {/* SO */}
-                <td className="px-6 py-8 border-r border-slate-700 hover:bg-slate-800/60 hover:shadow-[inset_0_0_20px_rgba(34,197,94,0.05)] transition-all cursor-default align-top">
-                  <span className="inline-block px-3 py-1 bg-green-500/10 text-green-500 font-bold text-xs rounded mb-4 border border-green-500/20 shadow-sm">SO Stratejileri (Maksi-Maksi)</span>
-                  <ul className="space-y-3 list-none font-medium text-slate-300">
-                    <li className="flex gap-2"><span>-</span> Mevcut Roots/SAP altyapısını merkezi Yönetici Paneli ile birleştirerek tam otomasyon sağlamak.</li>
-                    <li className="flex gap-2"><span>-</span> Güçlü finansal yapıyı kullanarak otomatik e-posta ve entegre veri yönetimi yatırımı yapmak.</li>
-                    <li className="flex gap-2"><span>-</span> Çok birimli kalite yapısını mobil uygulama ile müşteri self-servis şikayet takibine dönüştürmek.</li>
-                  </ul>
-                </td>
+      <div className="w-full flex flex-col xl:flex-row gap-6 mb-16 pt-10">
+        
+        {/* Left Image Section */}
+        <div className="w-full xl:w-[35%] rounded-3xl overflow-hidden relative group shadow-2xl h-[400px] xl:h-auto min-h-[500px]">
+          <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-[#0f172a] to-transparent opacity-80 z-10 pointer-events-none"></div>
+          <img 
+            src="/tows_handshake_tree.png" 
+            alt="TOWS Strategy Overview" 
+            className="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-1000 group-hover:scale-[1.03]" 
+          />
+        </div>
 
-                {/* ST */}
-                <td className="px-6 py-8 hover:bg-slate-800/60 hover:shadow-[inset_0_0_20px_rgba(234,179,8,0.05)] transition-all cursor-default align-top">
-                  <span className="inline-block px-3 py-1 bg-yellow-500/10 text-yellow-500 font-bold text-xs rounded mb-4 border border-yellow-500/20 shadow-sm">ST Stratejileri (Maksi-Mini)</span>
-                  <ul className="space-y-3 list-none font-medium text-slate-300">
-                    <li className="flex gap-2"><span>-</span> Geniş üretim kapasitesi ve marka gücü ile rakiplere karşı müşteri sadakati oluşturmak.</li>
-                    <li className="flex gap-2"><span>-</span> Modern fabrika donanımıyla iklim risklerine karşı esnek tedarik zincirleri kurmak.</li>
-                  </ul>
-                </td>
-              </tr>
+        {/* Right Grid Section */}
+        <div className="w-full xl:w-[65%] flex flex-col relative px-2">
+          <h4 className="text-4xl font-extrabold text-white text-center mb-10 tracking-widest uppercase drop-shadow-lg">TOWS MATRİSİ</h4>
+          
+          <div className="flex w-full mb-4">
+             <div className="w-[10%]"></div>
+             <div className="w-[45%] text-center text-slate-400 font-semibold tracking-[0.1em] md:tracking-[0.2em] text-[13px] md:text-[15px]">FIRSATLAR (O)</div>
+             <div className="w-[45%] text-center text-slate-400 font-semibold tracking-[0.1em] md:tracking-[0.2em] text-[13px] md:text-[15px]">TEHDİTLER (T)</div>
+          </div>
 
-              {/* Zayıf Yönler Satırı */}
-              <tr className="group/row">
-                <td className="px-6 py-8 border-r border-slate-700 bg-red-500/5 font-bold text-red-500 uppercase tracking-wider relative align-top">
-                  Zayıf Yönler (W)
-                  <div className="absolute inset-0 bg-slate-800/10 opacity-0 group-hover/row:opacity-100 transition-opacity pointer-events-none"></div>
-                </td>
-                
-                {/* WO */}
-                <td className="px-6 py-8 border-r border-slate-700 hover:bg-slate-800/60 hover:shadow-[inset_0_0_20px_rgba(59,130,246,0.05)] transition-all cursor-default align-top">
-                  <span className="inline-block px-3 py-1 bg-blue-500/10 text-blue-500 font-bold text-xs rounded mb-4 border border-blue-500/20 shadow-sm">WO Stratejileri (Mini-Maksi)</span>
-                  <ul className="space-y-3 list-none font-medium text-slate-300">
-                    <li className="flex gap-2"><span>-</span> <strong>1.</strong> Dijital Dönüşüm: Manuel geri bildirim sistemini, Tarım 4.0 yatırımları kapsamında bulut tabanlı bir CRM yazılımına taşımak (W5 + O3).</li>
-                    <li className="flex gap-2"><span>-</span> 2. Manuel e-posta süreçlerini otomatik bildirim sistemiyle değiştirerek günde +40 dk tasarruf sağlamak.</li>
-                    <li className="flex gap-2"><span>-</span> 3. Roots darboğazını merkezi panel entegrasyonu ile çözerek 2 saatlik beklemeyi ortadan kaldırmak.</li>
-                    <li className="flex gap-2"><span>-</span> 4. Mevsimsel işçi sorununu dijital eğitim modülleri ve otomatize süreçlerle hafifletmek.</li>
-                  </ul>
-                </td>
+          <div className="flex w-full">
+            {/* Row Labels */}
+            <div className="w-[10%] flex flex-col justify-around items-center text-slate-400 font-semibold tracking-[0.1em] md:tracking-[0.2em] text-[12px] md:text-[14px]">
+               <div className="-rotate-90 whitespace-nowrap opacity-70 uppercase -translate-y-8">Güçlü Yönler (S)</div>
+               <div className="-rotate-90 whitespace-nowrap opacity-70 uppercase translate-y-8">Zayıf Yönler (W)</div>
+            </div>
 
-                {/* WT */}
-                <td className="px-6 py-8 hover:bg-slate-800/60 hover:shadow-[inset_0_0_30px_rgba(239,68,68,0.1)] transition-all cursor-default align-top relative overflow-hidden group">
-                  <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-red-500/10 transition-colors"></div>
-                  <span className="inline-block px-3 py-1 bg-red-500/10 text-red-500 font-bold text-xs rounded mb-4 border border-red-500/20 shadow-sm">WT Stratejileri (Mini-Mini)</span>
-                  <ul className="space-y-3 list-none font-medium text-slate-300 relative z-10">
-                    <li className="flex gap-2"><span>-</span> Veri hatası riskini azaltmak için manuel kontrolleri kaldırıp otomatik veri doğrulama sistemi kurmak.</li>
-                    <li className="flex gap-2"><span>-</span> Departmanlar arası kopukluğu gidererek rakiplerin dijital avantajına karşı hızlı aksiyon almak.</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+            {/* 2x2 Grid */}
+            <div className="w-[90%] grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+               
+               {/* SO Quadrant */}
+               <div className="bg-[#1a202c]/50 backdrop-blur-md border border-slate-700/60 rounded-2xl p-6 shadow-xl hover:bg-[#1a202c] transition-all relative overflow-hidden group">
+                 <div className="absolute right-4 top-4 text-emerald-500 opacity-60 group-hover:opacity-100 transition-opacity">
+                   <Rocket size={30} />
+                 </div>
+                 <h5 className="text-emerald-400 font-bold text-[17px] mb-4 pr-8 tracking-wide">SO Stratejileri (Saldırı / Büyüme)</h5>
+                 <ul className="text-slate-300 text-sm space-y-4 font-medium leading-relaxed">
+                   <li><strong className="text-white">1.</strong> Devasa ölçek ve entegre model avantajıyla küresel "Sağlıklı Beslenme" pazarında pazar payını artırmak <strong>(S1, S2 + O1)</strong>.</li>
+                   <li><strong className="text-white">2.</strong> Mevcut teknolojik altyapıyı "Tarım 4.0" vizyonuna entegre ederek verimlilikte dünya liderliğine oynamak <strong>(S5 + O3)</strong>.</li>
+                   <li><strong className="text-white">3.</strong> Kurumsal güvenilirliği kullanarak "Yeşil Mutabakat" sertifikalarını hızla alıp AB pazarında öncü olmak <strong>(S4 + O2)</strong>.</li>
+                 </ul>
+               </div>
+
+               {/* ST Quadrant */}
+               <div className="bg-[#1a202c]/50 backdrop-blur-md border border-slate-700/60 rounded-2xl p-6 shadow-xl hover:bg-[#1a202c] transition-all relative overflow-hidden group">
+                 <div className="absolute right-4 top-4 text-amber-500 opacity-60 group-hover:opacity-100 transition-opacity">
+                   <Shield size={30} />
+                 </div>
+                 <h5 className="text-amber-500 font-bold text-[17px] mb-4 pr-8 tracking-wide">ST Stratejileri (Savunma / Korunma)</h5>
+                 <ul className="text-slate-300 text-sm space-y-4 font-medium leading-relaxed">
+                   <li><strong className="text-white">1.</strong> Coğrafi çeşitliliği bir "sigorta" gibi kullanarak, iklim krizinden kaynaklı bölgesel rekolte kayıplarını dengelemek <strong>(S3 + T1)</strong>.</li>
+                   <li><strong className="text-white">2.</strong> Anadolu Grubu'nun finansal gücünü kullanarak ekonomik dalgalanmalara karşı vadeli alımlar ve kur risk yönetimi yapmak <strong>(S4 + T2)</strong>.</li>
+                   <li><strong className="text-white">3.</strong> Teknolojik üstünlüğü kullanarak plastik içermeyen, çevreci ambalajlara hızlı geçiş yapmak ve yeni regülasyonları avantaja çevirmek <strong>(S5 + T3)</strong>.</li>
+                 </ul>
+               </div>
+
+               {/* WO Quadrant */}
+               <div className="bg-[#1a202c]/50 backdrop-blur-md border border-slate-700/60 rounded-2xl p-6 shadow-xl hover:bg-[#1a202c] transition-all relative overflow-hidden group">
+                 <div className="absolute right-4 top-4 text-teal-400 opacity-60 group-hover:opacity-100 transition-opacity">
+                   <BarChart2 size={30} />
+                 </div>
+                 <h5 className="text-teal-400 font-bold text-[17px] mb-4 pr-8 tracking-wide">WO Stratejileri (Gelişim / İyileştirme)</h5>
+                 <ul className="text-slate-300 text-sm space-y-4 font-medium leading-relaxed">
+                   <li><span className="text-[#ff8a9a]">1. Dijital Dönüşüm: Manuel geri bildirim sistemini bulut tabanlı bir CRM yazılımına taşımak (W1 + O3).</span></li>
+                   <li><strong className="text-white">2. Girdi Optimizasyonu:</strong> Akıllı tarım teknolojileri ile gübre ve enerji gibi yüksek girdi maliyetlerini optimize ederek kârlılığı korumak. <strong>(O3+W2)</strong>.</li>
+                   <li><strong className="text-white">3. Ürün Katma Değeri:</strong> Katma değeri yüksek egzotik meyvelere yönelerek, yüksek girdi maliyetlerinin kâr marjı üzerindeki baskısını hafifletmek <strong>(O4+W2)</strong>.</li>
+                 </ul>
+               </div>
+
+               {/* WT Quadrant */}
+               <div className="bg-[#1a202c]/50 backdrop-blur-md border border-slate-700/60 rounded-2xl p-6 shadow-xl hover:bg-[#1a202c] transition-all relative overflow-hidden group">
+                 <div className="absolute right-4 top-4 text-rose-500 opacity-60 group-hover:opacity-100 transition-opacity">
+                   <Bell size={30} />
+                 </div>
+                 <h5 className="text-rose-500 font-bold text-[17px] mb-4 pr-8 tracking-wide">WT Stratejileri (Önlem / Geri Çekilme)</h5>
+                 <ul className="text-slate-300 text-sm space-y-4 font-medium leading-relaxed">
+                   <li><strong className="text-white">1. Otomasyon Yatırımı:</strong> Mevsimsel işgücü bağımlılığını ve artan maliyet baskısını azaltmak için paketleme ve hasat süreçlerinde otomasyonu artırmak <strong>(W3 + T2)</strong>.</li>
+                   <li><strong className="text-white">2. Standartizasyon:</strong> Fason tesis kullanımından kaynaklanan riskleri azaltmak için global rakiplerle yarışabilecek sıkı bir dijital denetim ağı kurmak <strong>(W5+ T2)</strong>.</li>
+                   <li><strong className="text-white">3. Risk İzleme:</strong> Biyolojik riskleri ve iklim krizini yapay zeka destekli erken uyarı sistemleriyle izleyerek ürün kaybını minimize etmek <strong>(W4+ T1)</strong>.</li>
+                 </ul>
+               </div>
+
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,13 +1,14 @@
-import { LayoutDashboard, GitMerge, Search, Settings, BarChart3, Users, Building2, Target, Shuffle } from 'lucide-react';
+import { LayoutDashboard, GitMerge, Search, Settings, BarChart3, Users, Building2, Target, Shuffle, Layers } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
   const tabs = [
     { id: 'team-intro', icon: Users, label: 'Proje & Ekip' },
     { id: 'strategic-framework', icon: Building2, label: 'Stratejik Çerçeve' },
-    { id: 'summary', icon: LayoutDashboard, label: 'Yönetim Özeti' },
-    { id: 'process-transformation', icon: Shuffle, label: 'Süreç Dönüşümü' },
-    { id: 'rice-prioritization', icon: Target, label: 'RICE Matrisi' },
     { id: 'data-projection', icon: BarChart3, label: 'Veri Projeksiyonu' },
+    { id: 'sipoc-analysis', icon: Layers, label: 'SIPOC Analizi' },
+    { id: 'summary', icon: LayoutDashboard, label: 'Yönetim Özeti' },
+    { id: 'rice-prioritization', icon: Target, label: 'RICE Matrisi' },
+    { id: 'process-transformation', icon: Shuffle, label: 'Süreç Dönüşümü' },
     { id: 'process-map', icon: GitMerge, label: 'Süreç Haritası' },
     { id: 'root-cause', icon: Search, label: 'Kök Neden Analizi' },
   ];

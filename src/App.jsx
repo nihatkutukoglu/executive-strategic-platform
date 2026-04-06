@@ -7,6 +7,7 @@ import RootCauseAnalysis from './components/RootCauseAnalysis';
 import DataProjection from './components/DataProjection';
 import ProjectTeam from './components/ProjectTeam';
 import StrategicFramework from './components/StrategicFramework';
+import SipocAnalysis from './components/SipocAnalysis';
 import ProcessTransformation from './components/ProcessTransformation';
 import RicePrioritization from './components/RicePrioritization';
 
@@ -27,6 +28,7 @@ function App() {
               {activeTab === 'team-intro' && <ProjectTeam />}
               {activeTab === 'strategic-framework' && <StrategicFramework />}
               {activeTab === 'summary' && <ManagementSummary />}
+              {activeTab === 'sipoc-analysis' && <SipocAnalysis />}
               {activeTab === 'process-transformation' && <ProcessTransformation />}
               {activeTab === 'rice-prioritization' && <RicePrioritization />}
               {activeTab === 'data-projection' && <DataProjection />}

@@ -175,34 +175,12 @@ const toBeEdges = [
   { id: 'te-panelk1', source: 'panel', target: 'tb_k1', type: 'smoothstep', animated: true, className: 'fast-edge-animation', style: { stroke: '#22c55e', strokeWidth: 1, strokeDasharray: '3 3' } },
 ];
 
-/* ================================================================
-   SIPOC — Anadolu Etap Üretim & Şikayet Süreci (Görsel 3-4)
-   ================================================================ */
 
-const sipocItems = [
-  { id: 's', letter: 'S', title: 'Supplier (Tedarikçi)', icon: Layers, color: 'text-purple-400', bg: 'bg-purple-500/10', details: ['Sözleşmeli Çiftçiler (Meyve Bahçeleri)', 'Lojistik Taşeronları (Nakliye)', 'Ambalaj ve Paketleme Tedarikçileri', 'Kalite Laboratuvarı & SAP Sistemleri', 'Surway / Hakem Birimi'] },
-  { id: 'i', letter: 'I', title: 'Input (Girdi)', icon: Box, color: 'text-blue-400', bg: 'bg-blue-500/10', details: ['Ham Meyve / Sebze (Hasat)', 'Taşıma İrsaliyeleri ve Faturalar', 'SAP/Roots İzlenebilirlik Verileri', 'Casus / Isı-Nakliye Takip Verileri', 'Müşteri Şikayet Bildirimi (Mail/Fotoğraf)'] },
-  { id: 'p', letter: 'P', title: 'Process (Süreç)', icon: Cpu, color: 'text-yellow-400', bg: 'bg-yellow-500/10', details: [
-    'Hasat ve Fabrika Kabul', 
-    'Yıkama, Seçme ve Sıkma İşlemleri', 
-    'Pastörizasyon ve Kalite Kontrol', 
-    'Paketleme ve Soğuk Depolama', 
-    { 
-      text: 'Şikayet Değ., Müşteri İlişkileri ve Feedback', 
-      isRedBox: true, 
-      problemStory: 'Tam bu noktada en büyük kanayan yaramız başlıyor: Müşteriler mağazadan deforme veya çürük ürün şikayetini ilettiğinde sistemde bir "görsel kanıt" tutulamıyor. "Roots" ve "Surway" hakem birimleri araya girdiğinde, WhatsApp gruplarında kaybolan fotoğraflar ve bitmeyen e-posta zincirleri yüzünden süreç tıkanıyor. Şikayet statüsü ERP üzerinde şeffaf takip edilemiyor ve operasyonel maliyetin yanı sıra ciddi bir marka itibar zedelenmesi yaşanıyor.' 
-    }, 
-    'Sevkiyat ve Müşteri Bilgilendirme'
-  ] },
-  { id: 'o', letter: 'O', title: 'Output (Çıktı)', icon: FileOutput, color: 'text-green-400', bg: 'bg-green-500/10', details: ['Meyve Suyu ve Konsantre Ürünleri', 'Dijital Kalite Sertifikası', 'Sevkiyata Hazır Paletler', 'Müşteriye Kabul/Red Bildirimi', 'Düzeltici Faaliyet Raporu'] },
-  { id: 'c', letter: 'C', title: 'Customer (Müşteri)', icon: Users, color: 'text-teal-400', bg: 'bg-teal-500/10', details: ['Zincir Marketler (Migros, BİM, A101)', 'İhracat Distribütörleri', 'HoReCa (Otel, Restoran)', 'Son Tüketici', 'Üst Yönetim (Kalite Raporlama)'] },
-];
 
 export default function ProcessTransformation() {
   const [isToBe, setIsToBe] = useState(false);
   const [nodes, setNodes, onNodesChange] = useNodesState(asIsNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(asIsEdges);
-  const [activeSipoc, setActiveSipoc] = useState(null);
 
   useEffect(() => {
     if (isToBe) {
@@ -276,87 +254,7 @@ export default function ProcessTransformation() {
         </ReactFlow>
       </div>
 
-      {/* SIPOC Analysis Row */}
-      <div className="mt-16">
-        <div className="flex flex-col md:flex-row md:items-end gap-3 mb-8">
-          <h3 className="text-2xl font-bold text-white tracking-tight">SIPOC Analizi</h3>
-          <p className="text-gray-500 font-medium text-sm md:mb-1">Tedarikçiden müşteriye uzanan değer zincirinin yüksek seviyeli görünümü.</p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {sipocItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div 
-                key={item.id} 
-                onClick={() => setActiveSipoc(item)}
-                className={`bg-anadolu-card border border-slate-700/50 rounded-2xl p-6 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(255,255,255,0.05)] group`}
-              >
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 ${item.bg}`}>
-                  <Icon size={28} className={item.color} />
-                </div>
-                <div className={`text-2xl font-black mb-1 opacity-50 ${item.color}`}>{item.letter}</div>
-                <h4 className="text-white font-bold text-sm uppercase tracking-wider">{item.title.split(' ')[0]}</h4>
-              </div>
-            )
-          })}
-        </div>
-      </div>
 
-      {/* SIPOC Glassmorphism POPUP Modal */}
-      {activeSipoc && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setActiveSipoc(null)}></div>
-          
-          {/* Modal Content */}
-          <div className="bg-slate-900/90 border border-slate-700 rounded-3xl p-8 max-w-lg w-full relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)] transform animate-[fadeIn_0.3s_ease-out] border-t-4" style={{ borderTopColor: 'rgba(255,255,255,0.2)' }}>
-            <button 
-              className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors bg-slate-800 p-2 rounded-full hover:bg-slate-700"
-              onClick={() => setActiveSipoc(null)}
-            >
-              <X size={20} />
-            </button>
-            
-            <div className="flex items-center gap-4 mb-8">
-              <div className={`p-4 rounded-2xl ${activeSipoc.bg}`}>
-                  <activeSipoc.icon size={32} className={activeSipoc.color} />
-              </div>
-              <div>
-                <h3 className="text-3xl font-black text-white">{activeSipoc.title}</h3>
-                <p className="text-slate-400 font-medium">Süreç Kapsamı ve Unsurları</p>
-              </div>
-            </div>
-
-            <ul className="space-y-4">
-              {activeSipoc.details.map((detail, idx) => {
-                const isObj = typeof detail === 'object';
-                const text = isObj ? detail.text : detail;
-                const isRedBox = isObj && detail.isRedBox;
-
-                return (
-                  <li key={idx} className={`relative group flex items-center gap-4 p-4 rounded-xl border transition-all ${isRedBox ? 'bg-red-950/40 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)] hover:bg-red-900/60 cursor-help' : 'bg-slate-800/50 border-slate-700/50'}`}>
-                    <div className={`w-2 h-2 shrink-0 rounded-full ${isRedBox ? 'bg-red-500 animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]' : activeSipoc.color.replace('text', 'bg')}`}></div>
-                    <span className={`text-lg font-medium ${isRedBox ? 'text-red-300 font-bold tracking-wide' : 'text-white'}`}>{text}</span>
-                    
-                    {isRedBox && detail.problemStory && (
-                       <div className="absolute left-0 top-[105%] w-[110%] z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-1">
-                        <div className="bg-gradient-to-br from-red-950 to-[#0f172a] border border-red-500/50 rounded-xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                           <h5 className="text-red-400 font-black uppercase tracking-widest text-[11px] mb-3 flex items-center gap-2">
-                             <AlertTriangle size={16} className="animate-pulse" /> SÜREÇTEKİ ANA DARBOĞAZ (KIRILMA NOKTASI)
-                           </h5>
-                           <p className="text-slate-300 text-sm leading-relaxed font-medium">
-                             {detail.problemStory}
-                           </p>
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      )}
 
     </div>
   );
